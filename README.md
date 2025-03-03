@@ -35,7 +35,7 @@ There are two important steps:
 1. Downloading the game files from the J! Archive website
 2. Parsing and inserting them into the database
 
-The first step, downloading, will depend on the machine: the download script will pause between each download based on hte `SECONDS_BETWEEN_REQUESTS1 const at the top of download.py. The second step, parsing, should take ~30 minutes (on a 1.7 GHz Core i5 w/ 4 GB RAM). In total, you're looking at around 2 hours (probably less).
+The first step, downloading, will depend on the machine: the download script will pause between each download based on the `SECONDS_BETWEEN_REQUESTS` const at the top of download.py. The second step, parsing, should take ~30 minutes (on a 1.7 GHz Core i5 w/ 4 GB RAM). In total, you're looking at around 2 hours (probably less).
 
 The complete download of the game files is ~350MB, and the resulting database file is ~50MB (although these numbers are qucikly outdated as the number of games increases).
 
