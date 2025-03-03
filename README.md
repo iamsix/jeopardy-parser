@@ -8,20 +8,23 @@ Quick note: this project does **not** use semantic versioning (`python parser.py
 What is this?
 -------------
 
-This is a Python script to extract [Jeopardy!] clues from the [J! Archive] website and dump them into a SQLite database for use elsewhere (no particular application is intended). Python 2.7.* and SQLite 3.7.* on *nix have been tested and confirmed to work (requires BeautifulSoup 4 and the lxml parser).
+This is a Python3 script to extract [Jeopardy!] clues from the [J! Archive] website and dump them into a SQLite database for use elsewhere (no particular application is intended). Python 3.x and SQLite on *nix have been tested and confirmed to work (requires BeautifulSoup 4 and the lxml parser).
 
   [Jeopardy!]:http://www.jeopardy.com/
   [J! Archive]:http://j-archive.com/
+
+
+This version is modified to have a Links item in the database containing the links to images in clues where they exist to use with the palbot discord bot. It's also modified to take both the old and new html of the j-archive pages automatically.
 
 Quick start
 -----------
 
 ```bash
-git clone git://github.com/whymarrh/jeopardy-parser.git
+git clone https://github.com/iamsix/jeopardy-parser.git
 cd jeopardy-parser
 pip install -r requirements.txt
-python download.py
-python parser.py
+python3 download.py
+python3 parser.py
 ```
 
 How long will all this take?
@@ -32,7 +35,7 @@ There are two important steps:
 1. Downloading the game files from the J! Archive website
 2. Parsing and inserting them into the database
 
-The first step, downloading, will depend on the machine: the download script will use twice the number of available cores to download game files in parallel and will take around an hour to complete. The second step, parsing, should take ~30 minutes (on a 1.7 GHz Core i5 w/ 4 GB RAM). In total, you're looking at around 2 hours (probably less).
+The first step, downloading, will depend on the machine: the download script will pause between each download based on hte `SECONDS_BETWEEN_REQUESTS1 const at the top of download.py. The second step, parsing, should take ~30 minutes (on a 1.7 GHz Core i5 w/ 4 GB RAM). In total, you're looking at around 2 hours (probably less).
 
 The complete download of the game files is ~350MB, and the resulting database file is ~50MB (although these numbers are qucikly outdated as the number of games increases).
 
